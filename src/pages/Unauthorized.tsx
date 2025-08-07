@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const Unauthorized = () => {
   return (
@@ -11,7 +12,7 @@ const Unauthorized = () => {
       <div className="text-center p-8 border rounded-lg bg-card shadow-elevated">
         <h1 className="text-3xl font-bold mb-2">Unauthorized</h1>
         <p className="text-muted-foreground mb-4">You do not have access to this page.</p>
-        <a href="/" className="text-primary underline">Go to Home</a>
+        <Link to="/" className="text-primary underline">Go to Home</Link>
       </div>
     </div>
   );

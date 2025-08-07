@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import PublicNavbar from "@/components/layout/PublicNavbar";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -13,26 +14,29 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen grid place-items-center surface-gradient">
-      <Helmet>
-        <title>Forgot Password — AI HR Platform</title>
-        <meta name="description" content="Reset your password for the AI HR Platform." />
-        <link rel="canonical" href={window.location.href} />
-      </Helmet>
-      <div className="w-full max-w-md bg-card border border-border rounded-xl p-6 shadow-elevated tilt-hover">
-        <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold">Reset password</h1>
-          <p className="text-sm text-muted-foreground">We'll email you a link</p>
-        </div>
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+    <>
+      <PublicNavbar />
+      <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center surface-gradient">
+        <Helmet>
+          <title>Forgot Password — AI HR Platform</title>
+          <meta name="description" content="Reset your password for the AI HR Platform." />
+          <link rel="canonical" href={window.location.href} />
+        </Helmet>
+        <div className="w-full max-w-md bg-card border border-border rounded-xl p-6 shadow-elevated tilt-hover">
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-semibold">Reset password</h1>
+            <p className="text-sm text-muted-foreground">We'll email you a link</p>
           </div>
-          <Button type="submit" variant="hero" className="w-full">Send reset link</Button>
-        </form>
+          <form onSubmit={onSubmit} className="space-y-4">
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+            </div>
+            <Button type="submit" variant="hero" className="w-full">Send reset link</Button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
